@@ -21,5 +21,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function () {
 
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('/', 'HomeController@get_admin');
+    Route::resource('itemPost', 'PostController');
 
 });
