@@ -14,8 +14,10 @@ class CreateDeventriesTable extends Migration
     public function up()
     {
         Schema::create('deventries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->string('mac',24)->nullable();
+            $table->string('ip', 16)->nullable();
+            $table->string('direction', 4)->nullable();
+            $table->string('time', 32)->nullable();
         });
     }
 
