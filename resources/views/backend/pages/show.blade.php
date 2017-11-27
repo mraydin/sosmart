@@ -28,6 +28,5 @@
 
 
     </table>
-    <div class="container"><img class="img-responsive center-block" src="/img/temsa.png"> </div>
 
 @endsection

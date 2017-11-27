@@ -102,10 +102,5 @@ class PostController extends Controller
             ->with('success','Başarılı bir şekilde silindi');
     }
 
-    public function startstop()
-    {
-        $items = Devices::join('users as u', 'u.id', '=', 'sevkiyat.kullanici_id')->select('sevkiyat.*', 'u.name')->orderBy('id', 'desc')->get();
-        return view('backend.pages.startstop')->with('items', $items);
-    }
 }
 

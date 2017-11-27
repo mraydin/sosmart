@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Count;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,9 +24,13 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    public function get_Admin()
+    public function get_Admin(Request $request)
 
     {
-        return view('backend.pages.home');
+        $upcnt = Count::select('deventries.*')->where('direction', '=', 'up')->count();
+        $downcnt = Count::select('deventries.*')->where('direction', '=', 'down')->count();
+        return view('backend.pages.home',compact('upcnt','downcnt'))
+            ->with('i', ($request->input('page', 1) - 1) * 5);
+
     }
 }

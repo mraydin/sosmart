@@ -15,7 +15,7 @@
 
     @if (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Girdinizde bazı problemler olabilir...<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -25,7 +25,7 @@
     @endif
 
     {!! Form::open(array('route' => 'itemPost.store','method'=>'POST')) !!}
-    <div class="row">
+    <div class="row">æ
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
