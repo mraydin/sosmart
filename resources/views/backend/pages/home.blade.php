@@ -27,15 +27,20 @@
             <!-- Different data widgets -->
             <!-- ============================================================== -->
             <!-- .row -->
+            <div id="app">
+                <users></users>
+            </div>
+
+            <template id="users-template">
             <div id="app" class="row">
                 <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="white-box analytics-info">
+                    <div  class="white-box analytics-info">
                         <h3 class="box-title">Giriş</h3>
                         <ul class="list-inline two-part">
                             <li>
                                 <div id="sparklinedash"></div>
                             </li>
-                            <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">{{ $upcnt }}</span></li>
+                            <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">@{{ users.upcnt }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +51,7 @@
                             <li>
                                 <div id="sparklinedash2"></div>
                             </li>
-                            <li class="text-right"><i class="ti-arrow-down text-purple"></i> <span class="counter text-purple">{{ $downcnt }}</span></li>
+                            <li class="text-right"><i class="ti-arrow-down text-purple"></i> <span class="counter text-purple">@{{ users.downcnt }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +62,7 @@
                             <li>
                                 <div id="sparklinedash3"></div>
                             </li>
-                            <li class="text-right"><i class="text-info"></i> <span class="counter text-info">{{ $upcnt - $downcnt }}</span></li>
+                            <li class="text-right"><i class="text-info"></i> <span class="counter text-info">@{{ users.total }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -73,6 +78,8 @@
                     </div>
                 </div>
             </div>
+
+            </template>
             <!--/.row -->
         </div>
         <!-- /.container-fluid -->
@@ -84,4 +91,51 @@
     <!-- ============================================================== -->
 
 @endsection
+
+@section('js')
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.2/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <script>
+
+        Vue.component('users', {
+
+            template: '#users-template',
+
+            data: function () {
+                return {
+                    users: []
+                }
+            },
+
+            created: function () {
+                this.getUsers();
+            },
+
+            methods: {
+
+                getUsers: function () {
+
+                    $.getJSON("{{ route ('reals') }}", function(users) {
+
+                        this.users = users;
+
+                    }.bind(this));
+
+                    setTimeout(this.getUsers, 1000);
+
+                }
+            }
+
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+
+
+@stop
 

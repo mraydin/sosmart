@@ -21,12 +21,12 @@
 
         <tbody>
 
-             <tr v-for="user in users">
-                 <th>@{{ user.id }}</th>
-                 <td>@{{ user.name }}</td>
-                 <td>@{{ user.email }}</td>
-                 <td>@{{ user.created_at }}</td>
-            </tr>
+
+                 <th>@{{ users.upcnt }}</th>
+                 <td>@{{ users.downcnt }}</td>
+                 <td>a</td>
+                 <td>b</td>
+
         </tbody>
     </table>
 </template>
@@ -59,7 +59,7 @@
                         getUsers: function () {
 
 
-                            $.getJSON("{{ route ('api_users') }}", function(users) {
+                            $.getJSON("{{ route ('reals') }}", function(users) {
 
                                 this.users = users;
 

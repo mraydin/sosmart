@@ -43,7 +43,9 @@ class HomeController extends Controller
         $upcnt = Count::select('deventries.*')->where('direction', '=', 'up')->count();
         $downcnt = Count::select('deventries.*')->where('direction', '=', 'down')->count();
         $items = Devices::select('devices.*')->get();
-        return compact('upcnt','downcnt', 'items' );
+        $total= $upcnt - $downcnt;
+
+        return compact('upcnt','downcnt','total');
 
     }
 
