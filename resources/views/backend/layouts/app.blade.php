@@ -210,11 +210,30 @@
                 </div>
             </div>
             <ul class="nav" id="side-menu">
-                <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
+                <li> <a href="index.html" class="waves-effect"><i class="mdi mdi-av-timer fa-fw" data-icon="v"></i> <span class="hide-menu"> Tag Dashboard <span class="fa arrow"></span> </span></a>
                     <ul class="nav nav-second-level">
-                        <li> <a href="/admin"><i class=" fa-fw">1</i><span class="hide-menu">Cihaz No 1</span></a> </li>
-                        <li> <a href="#"><i class=" fa-fw">2</i><span class="hide-menu">Cihaz No 2</span></a> </li>
-                        <li> <a href="#"><i class=" fa-fw">3</i><span class="hide-menu">Cihaz No 3</span></a> </li>
+                        <li> <a href="/admin"><i class=" fa-fw">1</i><span class="hide-menu">Günlük</span></a> </li>
+                        <li> <a href="#"><i class=" fa-fw">2</i><span class="hide-menu">Aylık</span></a> </li>
+                        <li> <a href="#"><i class=" fa-fw">3</i><span class="hide-menu">Yıllık</span></a> </li>
+                    </ul>
+                </li>
+                <li class="devider"></li>
+                <li><a href="#" class="waves-effect"><i class="mdi mdi-apps fa-fw"></i> <span class="hide-menu">Smart Tags<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="javascript:void(0)" class="waves-effect"><i class="ti-desktop fa-fw"></i><span class="hide-menu">IP List</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                @foreach($items as $item)
+                                    <li> <a href="/admin"><i class=" fa-fw">1</i><span class="hide-menu">{{$item->ip}}</span></a> </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li><a href="javascript:void(0)" class="waves-effect"><i class="ti-user fa-fw"></i><span class="hide-menu">Mac List</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                @foreach($items as $item)
+                                    <li> <a href="/admin"><i class=" fa-fw">1</i><span class="hide-menu">{{$item->mac}}</span></a> </li>
+                                @endforeach
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li class="devider"></li>

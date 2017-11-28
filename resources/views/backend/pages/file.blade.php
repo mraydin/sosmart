@@ -58,13 +58,14 @@
 
                         getUsers: function () {
 
-                                $.getJSON("{{ route('api_users') }}", function(users) {
 
-                                    this.user = users;
+                            $.getJSON("{{ route ('api_users') }}", function(users) {
 
-                                }.bind(this));
+                                this.users = users;
 
-                                setTimeout(this.getUsers, 1000);
+                            }.bind(this));
+
+                            setTimeout(this.getUsers, 1000);
 
 
                         }
@@ -77,6 +78,4 @@
             });
         </script>
 
-
-    </table>
 </body>

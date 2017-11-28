@@ -1,5 +1,8 @@
 @extends('backend.layouts.app')
 
+
+
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Page Content -->
@@ -24,7 +27,7 @@
             <!-- Different data widgets -->
             <!-- ============================================================== -->
             <!-- .row -->
-            <div class="row">
+            <div id="app" class="row">
                 <div class="col-lg-3 col-sm-6 col-xs-12">
                     <div class="white-box analytics-info">
                         <h3 class="box-title">Giriş</h3>
@@ -36,7 +39,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-xs-12">
+                <div id="app" class="col-lg-3 col-sm-6 col-xs-12">
                     <div class="white-box analytics-info">
                         <h3 class="box-title">Çıkış</h3>
                         <ul class="list-inline two-part">
@@ -75,8 +78,10 @@
         <!-- /.container-fluid -->
         <footer class="footer text-center"> 2017 &copy; SoSmart </footer>
     </div>
+
     <!-- ============================================================== -->
     <!-- End Page Content -->
     <!-- ============================================================== -->
 
 @endsection
+
